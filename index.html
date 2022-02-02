@@ -1,0 +1,199 @@
+
+<!DOCTYPE html>
+<html lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>MULTI-TASK DEEP RESIDUAL ECHO SUPPRESSION WITH ECHO-AWARE LOSS FUNCTION</title>
+<meta name="generator" content="Jekyll v3.9.0">
+<meta property="og:title" content="TODO: title">
+<meta property="og:locale" content="en_US">
+<link rel="canonical" href="https://echocatzh.github.io/GFTNN/">
+<meta property="og:url" content="https://echocatzh.github.io/GFTNN/">
+<meta name="twitter:card" content="summary">
+<!-- End Jekyll SEO tag -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <link rel="stylesheet" href="./GFTNN_files/style.css">
+  </head>
+  <body data-new-gr-c-s-check-loaded="14.1001.0" data-gr-ext-installed="">
+    <section class="page-header">
+      
+    </section>
+
+<section class="main-content">
+      <h1 id=""><center>MULTI-TASK DEEP RESIDUAL ECHO SUPPRESSION WITH ECHO-AWARE LOSS FUNCTION
+	  </center></h1>
+
+<center> Shimin Zhang, Ziteng Wang, Jiayao Sun, Biao Tian, Qiang Fu, Lei Xie</center>
+<center> Audio, Speech and Language Processing Group (ASLP@NPU), Northwestern Polytechnical University, Xi'an, China</center>
+<center> Beijing Sound Connect Technology</center>
+
+<h2>0. Contents</h2>
+<ol>
+  <li><a href="https://echocatzh.github.io/GFTNN/#abstract">Abstract</a></li>
+  <li><a href="https://echocatzh.github.io/GFTNN/#near-end-single-talk">Demos -- ICASSP 2022 AEC-Challenge blind test (near-end single-talk)</a></li>
+  <li><a href="https://echocatzh.github.io/GFTNN/#far-end-single-talk">Demos -- ICASSP 2022 AEC-Challenge blind test (far-end single-talk)</a></li>
+  <li><a href="https://echocatzh.github.io/GFTNN/#double-talk">Demos -- ICASSP 2022 AEC-Challenge blind test (double-talk)</a></li>
+  <li><a href="https://echocatzh.github.io/GFTNN/#full">Demos -- Full 300 clips of ICASSP 2022 AEC-Challenge blind test far-end single-talk scenario</a></li>
+</ol>
+
+<br><br>
+<h2 id="abstract">1. Abstract<a name="abstract"></a></h2>
+<p> 
+With the deepening of the application of neural networks (NN) in acoustic echo cancellation (AEC), it is necessary to ensure zero echo leakage in real-time communication (RTC) and the intelligibility of near-end speech. In order to achieve this as much as possible, we design a system for cascading digital signal processing (DSP) and NN algorithms. First, we deeply compared the benefits of different digital signal processing methods which worked as linear echo cancellation. Second, we proposed a multi-task NN model for residual echo suppression (RES), noise suppression (NS) and near-end voice activity detection (VAD). Finally, with the improved cost function according to echo weighting, the algorithm greatly improve the amount of echo suppression while ensuring that the near-end speech is not excessive inhibition. In the ICASSP 2022 AEC-Challenge, our method ranked 1st and 3rd in word acceptance rate (WAcc) and mean opinion scores (MOS), respectively.
+</p>
+<br>
+	<center><img src="./GFTNN_files/aec_flow.png" style="height:120px"/></center>
+	<center><img src="./GFTNN_files/system.png" style="height:360px"/></center>
+<br><br>
+
+<h2>2. Demos -- Near-end single-talk<a name="near-end-single-talk"></a></h2>
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center"><strong>Models</strong></th>
+      <th style="text-align: center"><strong>Sample 1</strong></th>
+      <th style="text-align: center"><strong>Sample 2</strong></th>
+      <th style="text-align: center"><strong>Sample 3</strong></th>
+      <th style="text-align: center"><strong>Sample 4</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Microphone</td>
+      <td style="text-align: left"><audio src="samples/mic/near-end-single-talk/0e9a9c23-4867-41d4-85b3-d3236ad20f6c_nearend-singletalk_mic.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><audio src="samples/mic/near-end-single-talk/MXn4F3uO6EaQ0NJtITuYbA_nearend-singletalk_mic.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><audio src="samples/mic/near-end-single-talk/1fd9bea8-3f81-45db-8a63-f73b34d0a078_nearend-singletalk_mic.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><audio src="samples/mic/near-end-single-talk/zfl8eeOVGUWdMx7jzvNRBg_nearend-singletalk_mic.wav" controls="" preload=""></audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Reference</td>
+      <td style="text-align: left"><audio src="samples/ref/near-end-single-talk/0e9a9c23-4867-41d4-85b3-d3236ad20f6c_nearend-singletalk_lpb.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><audio src="samples/ref/near-end-single-talk/MXn4F3uO6EaQ0NJtITuYbA_nearend-singletalk_lpb.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><audio src="samples/ref/near-end-single-talk/1fd9bea8-3f81-45db-8a63-f73b34d0a078_nearend-singletalk_lpb.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><audio src="samples/ref/near-end-single-talk/zfl8eeOVGUWdMx7jzvNRBg_nearend-singletalk_lpb.wav" controls="" preload=""></audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Baseline</td>
+      <td style="text-align: left"><audio src="samples/baseline/near-end-single-talk/0e9a9c23-4867-41d4-85b3-d3236ad20f6c_nearend-singletalk_mic.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><audio src="samples/baseline/near-end-single-talk/MXn4F3uO6EaQ0NJtITuYbA_nearend-singletalk_mic.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><audio src="samples/baseline/near-end-single-talk/1fd9bea8-3f81-45db-8a63-f73b34d0a078_nearend-singletalk_mic.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><audio src="samples/baseline/near-end-single-talk/zfl8eeOVGUWdMx7jzvNRBg_nearend-singletalk_mic.wav" controls="" preload=""></audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">GFTNN-VAD-L</td>
+      <td style="text-align: left"><audio src="samples/gftnn/near-end-single-talk/0e9a9c23-4867-41d4-85b3-d3236ad20f6c_nearend-singletalk_mic.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><audio src="samples/gftnn/near-end-single-talk/MXn4F3uO6EaQ0NJtITuYbA_nearend-singletalk_mic.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><audio src="samples/gftnn/near-end-single-talk/1fd9bea8-3f81-45db-8a63-f73b34d0a078_nearend-singletalk_mic.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><audio src="samples/gftnn/near-end-single-talk/zfl8eeOVGUWdMx7jzvNRBg_nearend-singletalk_mic.wav" controls="" preload=""></audio></td>
+
+    </tr>
+  </tbody>
+</table>
+<br><br>
+
+
+
+<h2>3. Demos -- Far-end single-talk<a name="far-end-single-talk"></a></h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center"><strong>Models</strong></th>
+      <th style="text-align: center"><strong>Sample 1</strong></th>
+      <th style="text-align: center"><strong>Sample 2</strong></th>
+      <th style="text-align: center"><strong>Sample 3</strong></th>
+      <th style="text-align: center"><strong>Sample 4</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Microphone</td>
+      <td style="text-align: left"><audio src="samples/mic/far-end-single-talk/0sKU1JZ9rEe5nPleS6JiFw_farend-singletalk-with-movement_mic.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><audio src="samples/mic/far-end-single-talk/dFw0RXbAc00Royb0kKxm0Q_farend-singletalk-with-movement_mic.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><audio src="samples/mic/far-end-single-talk/QFkrZZDXBUKU9Dq67EHlyg_farend-singletalk_mic.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><audio src="samples/mic/far-end-single-talk/yciM00EmXkuhWoy7fUbvIg_farend-singletalk-with-movement_mic.wav" controls="" preload=""></audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Reference</td>
+      <td style="text-align: left"><audio src="samples/ref/far-end-single-talk/0sKU1JZ9rEe5nPleS6JiFw_farend-singletalk-with-movement_lpb.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><audio src="samples/ref/far-end-single-talk/dFw0RXbAc00Royb0kKxm0Q_farend-singletalk-with-movement_lpb.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><audio src="samples/ref/far-end-single-talk/QFkrZZDXBUKU9Dq67EHlyg_farend-singletalk_lpb.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><audio src="samples/ref/far-end-single-talk/yciM00EmXkuhWoy7fUbvIg_farend-singletalk-with-movement_lpb.wav" controls="" preload=""></audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Baseline</td>
+      <td style="text-align: left"><audio src="samples/baseline/far-end-single-talk/0sKU1JZ9rEe5nPleS6JiFw_farend-singletalk-with-movement_mic.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><audio src="samples/baseline/far-end-single-talk/dFw0RXbAc00Royb0kKxm0Q_farend-singletalk-with-movement_mic.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><audio src="samples/baseline/far-end-single-talk/QFkrZZDXBUKU9Dq67EHlyg_farend-singletalk_mic.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><audio src="samples/baseline/far-end-single-talk/yciM00EmXkuhWoy7fUbvIg_farend-singletalk-with-movement_mic.wav" controls="" preload=""></audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">GFTNN-VAD-L</td>
+      <td style="text-align: left"><audio src="samples/gftnn/far-end-single-talk/0sKU1JZ9rEe5nPleS6JiFw_farend-singletalk-with-movement_mic.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><audio src="samples/gftnn/far-end-single-talk/dFw0RXbAc00Royb0kKxm0Q_farend-singletalk-with-movement_mic.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><audio src="samples/gftnn/far-end-single-talk/QFkrZZDXBUKU9Dq67EHlyg_farend-singletalk_mic.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><audio src="samples/gftnn/far-end-single-talk/yciM00EmXkuhWoy7fUbvIg_farend-singletalk-with-movement_mic.wav" controls="" preload=""></audio></td>
+    </tr>
+  </tbody>
+</table>
+<br><br>
+
+<h2>4. Demos -- Double-talk<a name="double-talk"></a></h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center"><strong>Models</strong></th>
+      <th style="text-align: center"><strong>Sample 1</strong></th>
+      <th style="text-align: center"><strong>Sample 2</strong></th>
+      <th style="text-align: center"><strong>Sample 3</strong></th>
+      <th style="text-align: center"><strong>Sample 4</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Microphone</td>
+      <td style="text-align: left"><audio src="samples/mic/double-talk/655836a6-d361-488f-aafb-745d8df0e1eb_doubletalk_mic.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><audio src="samples/mic/double-talk/ZZaPBCFUG0O4YPSJ3Ra72g_doubletalk-with-movement_mic.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><audio src="samples/mic/double-talk/BxSd4oDC4EKg4S5T0E0Zyw_doubletalk_mic.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><audio src="samples/mic/double-talk/s7c6fM3Qt0KlZ2cJono40w_doubletalk-with-movement_mic.wav" controls="" preload=""></audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Reference</td>
+      <td style="text-align: left"><audio src="samples/ref/double-talk/655836a6-d361-488f-aafb-745d8df0e1eb_doubletalk_lpb.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><audio src="samples/ref/double-talk/ZZaPBCFUG0O4YPSJ3Ra72g_doubletalk-with-movement_lpb.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><audio src="samples/ref/double-talk/BxSd4oDC4EKg4S5T0E0Zyw_doubletalk_lpb.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><audio src="samples/ref/double-talk/s7c6fM3Qt0KlZ2cJono40w_doubletalk-with-movement_lpb.wav" controls="" preload=""></audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Baseline</td>
+      <td style="text-align: left"><audio src="samples/baseline/double-talk/655836a6-d361-488f-aafb-745d8df0e1eb_doubletalk_mic.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><audio src="samples/baseline/double-talk/ZZaPBCFUG0O4YPSJ3Ra72g_doubletalk-with-movement_mic.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><audio src="samples/baseline/double-talk/BxSd4oDC4EKg4S5T0E0Zyw_doubletalk_mic.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><audio src="samples/baseline/double-talk/s7c6fM3Qt0KlZ2cJono40w_doubletalk-with-movement_mic.wav" controls="" preload=""></audio></td>
+
+    </tr>
+    <tr>
+      <td style="text-align: left">GFTNN-VAD-L</td>
+      <td style="text-align: left"><audio src="samples/gftnn/double-talk/655836a6-d361-488f-aafb-745d8df0e1eb_doubletalk_mic.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><audio src="samples/gftnn/double-talk/ZZaPBCFUG0O4YPSJ3Ra72g_doubletalk-with-movement_mic.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><audio src="samples/gftnn/double-talk/BxSd4oDC4EKg4S5T0E0Zyw_doubletalk_mic.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><audio src="samples/gftnn/double-talk/s7c6fM3Qt0KlZ2cJono40w_doubletalk-with-movement_mic.wav" controls="" preload=""></audio></td>
+    </tr>
+  </tbody>
+</table>
+<h2>5. Demos -- Full 300 clips<a name="full"></a></h2>
+<li><a href="samples/farend-singletalk.zip">farend-singletalk.zip(17MB)</a></li>
+
+<br>
+It should be noted that <b> 4ecd5889-aa9e-4c02-a81a-ff87ad6e9c38_farend-singletalk_mic.wav</b> belongs double-talk scenario.
+
+</table>
+      <footer class="site-footer">
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com/">GitHub Pages</a>.</span>
+      </footer>
+    </section>
+
+</body></html>
