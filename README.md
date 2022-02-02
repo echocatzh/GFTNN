@@ -1,3 +1,3 @@
 # GFTNN
 
-Demo pages for the comming paper...
+Submitted results the ICASSP 2022 AEC-Challenge
