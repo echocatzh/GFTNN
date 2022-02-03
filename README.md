@@ -1,3 +1,3 @@
 # GFTNN
 
-Submitted results the ICASSP 2022 AEC-Challenge
+Submitted results of the ICASSP 2022 AEC-Challenge
