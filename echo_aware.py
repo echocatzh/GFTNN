@@ -54,7 +54,8 @@ def echo_weight(r_t, i_t, r_e, i_e):
 def weighted_plcpa(stft, est, label, e):
     """
     stft: as named, STFT function.
-    est, label, e: shape Batch x 2F x T.
+    est: shape Batch x 2F x T.
+    label, e: Batch x Nsamples.
     e: echo
     """
     real_est, imag_est = th.chunk(est, 2, dim=1)
@@ -82,7 +83,7 @@ def weighted_plcpa(stft, est, label, e):
     est[1]: estimated complex spectrum, Batch x 2F x T.
     est[2]: masked complex spectrum, as described in Eq. (8)
     est[3]: VAD estimation, shape B x T x 2
-    label, e: shape Batch x 2F x T.
+    label, e: shape Batch x Nsamples.
     e: echo
     """
     real_est, imag_est = th.chunk(est[1], 2, dim=1)
